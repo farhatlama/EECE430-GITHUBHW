@@ -1,0 +1,15 @@
+{% extends "myapp1/base.html" %}
+{% block content %}
+<h3>{{ video.movie_title }}</h3>
+<ul>
+  <li><b>MovieID:</b> {{ video.movie_id }}</li>
+  <li><b>Director:</b> {{ video.director_name }}</li>
+  <li><b>Actors:</b> {{ video.actor1_name }}{% if video.actor2_name %}, {{ video.actor2_name }}{% endif %}</li>
+  <li><b>Genre:</b> {{ video.get_movie_genre_display }}</li>
+  <li><b>Release Year:</b> {{ video.release_year }}</li>
+</ul>
+<p>
+  <a href="{% url 'myapp1:update' video.pk %}">Edit</a> |
+  <a href="{% url 'myapp1:list' %}">Back</a>
+</p>
+{% endblock %}
