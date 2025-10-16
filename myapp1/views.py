@@ -10,7 +10,7 @@ from .forms import VideoForm
 
 def menu(request):
     return render(request, "myapp1/menu.html")
-
+   # return render(request, "myapp1/menu.html", {"message": "Hello from Jenkins"}) , delete the one before
 def video_list(request):
     q = request.GET.get("q", "")
     qs = Video.objects.all().order_by("-id")
@@ -57,3 +57,4 @@ def video_delete(request, pk):
         video.delete()
         return redirect("myapp1:list")
     return render(request, "myapp1/video_confirm_delete.html", {"video": video})
+
