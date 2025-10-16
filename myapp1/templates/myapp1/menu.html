@@ -1,8 +1,12 @@
 {% extends "myapp1/base.html" %}
 {% block content %}
 <h3>Menu</h3>
+{% if message %}
+  <h2>{{ message }}</h2>
+{% endif %}
 <ul>
   <li><a href="{% url 'myapp1:create' %}">Add a new video</a></li>
   <li><a href="{% url 'myapp1:list' %}">Display all videos</a></li>
 </ul>
 {% endblock %}
+
