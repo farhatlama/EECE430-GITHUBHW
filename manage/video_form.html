@@ -1,0 +1,17 @@
+{% extends "myapp1/base.html" %}
+{% block content %}
+<h3>{{ mode }} Video</h3>
+<form method="post">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  {% for field in form %}
+    <div>
+      <label>{{ field.label }}{% if field.field.required %} *{% endif %}</label><br>
+      {{ field }}<br>
+      <span style="color:red">{{ field.errors }}</span>
+    </div>
+  {% endfor %}
+  <button type="submit">Save</button>
+  <a href="{% url 'myapp1:list' %}">Cancel</a>
+</form>
+{% endblock %}
